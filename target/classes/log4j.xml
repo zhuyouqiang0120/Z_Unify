@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- OFF 、FATAL 、ERROR、WARN、INFO、DEBUG、TRACE 、ALL 
+		OFF 为最高等级 关闭了日志信息 
+		FATAL 为可能导致应用中止的严重事件错误
+		ERROR 为严重错误 主要是程序的错误 
+		WARN 为一般警告，比如session丢失
+		INFO 为一般要显示的信息，比如登录登出 
+		DEBUG 为程序的调试信息
+		TRACE 为比DEBUG更细粒度的事件信息 ALL 为最低等级，将打开所有级别的日志
+	 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d - %c -%-4r [%t] %-5p %x - %m%n" />
+		</layout>
+
+		<!--限制输出级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="TRACE" />
+		</filter>
+	</appender>
+
+	<appender name="DATABASE" class="org.apache.log4j.jdbc.JDBCAppender">
+		<param name="URL" value="jdbc:mysql://127.0.0.1:3306/zens_unify" />
+		<param name="driver" value="com.mysql.jdbc.Driver" />
+		<param name="user" value="swatapp" />
+		<param name="password" value="swatapp" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="INSERT INTO unify_sys_log(action,classname,methodname,loglevel,summary,operator,currtime,deleted) VALUES ('%X{action}','%C','%M','%p','%m','%X{operator}','%d{MM/dd/yyyy HH:mm:ss}',0)" />
+		</layout>
+	</appender>
+
+	<!--- 异步，当日志达到缓存区大小时候执行所包的appender -->
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender"> 
+		<param name="BufferSize" value="256" /> 
+		<appender-ref ref="DATABASE" /> 
+	</appender> 
+
+	<!--通过<logger></logger>的定义可以将各个包中的类日志输出到不同的日志文件中 -->
+	<logger name="com.zens.unify" additivity="false"> 
+		<level value="DEBUG" /> 
+		<appender-ref ref="CONSOLE" /> 
+	</logger> 
+
+	<!--通过<category></category>的定义可以将各个包中的类日志输出到不同的日志文件中 <category name="com.zens.unify"> 
+		<level value="DEBUG" /> <appender-ref ref="CONSOLE" /> <appender-ref ref="DATABASE" 
+		/> </category> -->
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="WARN" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DATABASE" />
+	</root>
+
+</log4j:configuration>

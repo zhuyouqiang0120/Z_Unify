@@ -1,0 +1,16 @@
+{
+    "status": "-1",
+    "msg": {
+        "user": {
+            "name": "林鹏飞",
+            "account": "210624XXXXXXXX3213",
+            "company": "三星法绅贸易（上海）有限公司"
+        },
+        "pay": {
+            "type": "养老金",
+            "enddate": "2014年12月",
+            "months": "40个月",
+            "balance": "15536"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+/* 
+ * 工具类样式
+ *
+ * author @hy.spin 
+ * date 2015/08/14
+ * 
+*/
+
+body, html { width: 100%; height: 100%;	overflow: hidden; }
+.panel-body{ padding: 5px; width:100%; height:100%; }
+#spin-group, #spin-table { -webkit-animation: fadeInLeft 1s .2s ease both; -moz-animation: fadeInLeft 1s .2s ease both; } @-webkit-keyframes fadeInLeft { 0%{	opacity: 0;	-webkit-transform: translateX(-20px); }	100%{ opacity:1; -webkit-transform:translateX(0); } } @-moz-keyframes fadeInLeft { 0%{ opacity: 0; -moz-transform: translateX(-20px); } 100%{ opacity:1; -moz-transform:translateX(0); } }
+
+/* modal */
+#modal-content-other{ position: absolute; width: 70%; top: -500px; left: 75%; }
+.modal-move-left{ left:0%; -webkit-transition:.7s ease all; -moz-transition:.7s ease all; -webkit-transform:translate(-35%); -moz-transform:translate(-35%); }
+.modal-move-right{ position: absolute; width: 70%; top: -500px; left: 75%; -webkit-transition:.7s ease all; -moz-transition:.7s ease all; -webkit-transform:translateY(500px); -moz-transform:translateY(500px); }
+.modal-move-center{ left:-35%; -webkit-transition:.7s ease all; -moz-transition:.7s ease all; -webkit-transform:translate(35%); -moz-transform:translate(35%); }
+.modal-move-top{ position: absolute; width: 70%; top: 0px; left: 75%; -webkit-transition:.7s ease all; -moz-transition:.7s ease all; -webkit-transform:translateY(-500px); -moz-transform:translateY(-500px); }
+
+/* group */
+#spin-group{ width:100%; height:100%; overflow:hidden; }
+.group-util{ width:100%; margin:2px; display:inline-block; }
+#group-core{ width:100%; height:100%; }
+#group-box{ display:inline-block; width:17%; height:20%; background-color:#FFF; margin:5px 10px 10px 20px; border-radius:6px; box-shadow: 0 1px 3px #000; }
+.box-title{ height:30%; padding:6px 15px; color:#FC1907; white-space: nowrap; }
+.box-summary{ height:45%; padding:6px 15px; word-break: break-all; word-wrap: break-word; overflow:hidden; }
+.box-footer{ height:25%; font-size: 1.3em; background-color: #f6f6f6; border-radius: 0 0 3px 3px; border-top: 1px solid #e7e7e7; box-shadow: 0 1px 0 0 #fff inset; padding: 7px 15px 7px 15px; color: #8B8B8C; position: relative; }
+.footer-left{ width:15%; float:left !important; border-right: 1px solid #ddd; padding-right: .6em; }
+.footer-center{ width:70%; text-align:center; display:inline-block; font-size: 80%; }
+.footer-right{ width:15%; float:right !important; border-left: 1px solid #ddd; padding-left: .6em; }
+
+/* form */
+.spin-form{ padding:15px; width:100%; height:100%; }
+.form-item{ padding:10px 5px 10px 5px; border-bottom:1px dashed #BBBBBB; }
+.item-label{ width:25%; display:inline-block; text-align:center; max-width:25%; font-weight: 700; }
+.item-input{ width:75%; display:inline-block; }
+#form-warn{ text-align: center; color: red; font-size:1.2em; font-weight:900; }
+
+/* form-group */
+.item-option{ width:100%; height:100%; padding-top:2px; }
+.option-num{ border-radius: 4px 0 0 4px; display: inline-block; width: auto; height: 34px; min-width: 16px; padding: 4px 5px; font-size: 14px; font-weight: normal; line-height: 24px; text-align: center; text-shadow: 0 1px 0 #ffffff; background-color: #eeeeee; border: 1px solid #ccc; }
+.option-input{ width:72%; display: inline-block; border-radius: 0 4px 4px 0; }
+
+/* form-datetime */
+.form-datetime{ width:65%; padding-top:5px; }
+.label-time{ line-height: 40px; }
+
+/* table */
+#spin-table{ width:100%; height:100%; overflow:hidden; }
+#table-util{ width:100%; height:5%; margin:2px; }
+#table-content{ text-align:center; margin:2px; }
+#table-pagination{ margin:2px; }
+
+#spin-uploadimg{ padding:5px; }
+.uploadimg-img{ text-align: center; width: 300px; height: 250px; margin: 5px auto; background: url("../img/imgboxbg.png") no-repeat scroll center center #CCCCCC; border: 1px dotted #CCCCCC; }
+.uploadimg-alert{ margin-top: 10px; margin-bottom: 10px; color: #c09853; padding: 8px 35px 8px 14px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); background-color: #fcf8e3; border: 1px solid #fbeed5; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; }
